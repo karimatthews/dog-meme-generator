@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title> Dog Meme Generator </title>
+  </head>
+  <body>
+    <!-- Set up tabs -->
+    <div class="tab">
+      <button id = "defaultOpen" class="tablinks" onclick="openTab(event, 'upload')">Upload Image</button>
+      <button id="secondTab" class="tablinks" onclick="openTab(event, 'images');">Choose Image</button>
+
+    </div>
+
+
+
+    <div id="upload" class="tabcontent">
+      <input class="fileButton" type="file" onchange="previewFile()"><br>
+      <img src="" height="200" alt="">
+    </div>
+
+    <div id="images" class="tabcontent">
+      Images will go here
+    </div>
+
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="app.js"> </script>
+  </body>
+</html>
