@@ -24,22 +24,119 @@ function openTab(evt, tabName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
+// var image = document.createElement("img")
+// image.id = "memeImage"
+// image.src = ""
+// image.alt = ""
 
-function previewFile(){
-    var preview = document.querySelector('img'); //selects the query named img
-    var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-    var reader  = new FileReader();
+var basic = null;
 
+var croppedImage = document.getElementById("croppedImage")
 
-    reader.onloadend = function () {
-        preview.src = reader.result;
+var uploadDiv = document.getElementById('upload')
+
+imageContainer = document.getElementById("imageContainer")
+
+function cropImage(){
+  //clear previous image
+  function clearImageContainer() {
+    while (imageContainer.childNodes.length > 0) {
+      imageContainer.removeChild(imageContainer.childNodes[0])
     }
+  }
+  clearImageContainer();
 
-    if (file) {
-        reader.readAsDataURL(file); //reads the data as a URL
-    } else {
-        preview.src = "";
-    }
+  var file = document.querySelector('input[type=file]').files[0]; //sames as here
+  var reader = new FileReader();
+
+  //create croppie
+  basic = $('#imageContainer').croppie({
+    viewport: {width: 300,height: 300},
+    showZoomer: false
+  });
+  //
+  // basic.croppie('setZoom', {
+  //     value: 100
+  // });
+
+  //bind croppie to uploaded image
+  reader.onloadend = function () {
+    // basic.croppie('setZoom', {value: 1.5})
+    basic.croppie('bind', {
+        url: reader.result,
+        // points: [0,0,2000,2000]
+    })
+
+  }
+
+  if (file) {
+      reader.readAsDataURL(file); //reads the data as a URL
+  } else {
+      image.src = "";
+  }
+
+
+  var memeDiv
+  //Create the image div
+  function createDiv() {
+    memeDiv = document.createElement("div")
+    memeDiv.id = "memeDiv"
+    // memeDiv.className = "meme"
+    uploadDiv.appendChild(memeDiv)
+  }
+  createDiv();
+
+  function showCroppedImage() {
+    basic.croppie('result', {
+        type: 'base64',
+        size: 'viewport'
+    }).then(function(res){
+      croppedImage.src = res
+    });
+  }
+
+  showResultButton = document.createElement("button")
+  showResultButton.id = "showResultButton"
+  imageContainer.appendChild(showResultButton)
+  showResultButton.innerHTML = "Crop Image"
+  showResultButton.onclick = showCroppedImage;
+
 }
 
-previewFile();  //calls the function named previewFile()
+
+
+
+
+function addTopText() {
+  var topText = document.createElement("p")
+  topText.id = "topText"
+  topText.className = "memeText"
+  topText.innerHTML = document.getElementById("topTextInput").value
+  memeDiv.appendChild(topText)
+}
+
+function addImage() {
+  document.getElementById('memeDiv').appendChild(basic.result)
+}
+
+
+function addBottomText() {
+  var bottomText = document.createElement("p")
+  bottomText.id = "bottomText"
+  bottomText.className = "memeText"
+  bottomText.innerHTML = document.getElementById("bottomTextInput").value
+  memeDiv.appendChild(bottomText)
+}
+
+
+function showMeme() {
+  //delete old meme
+  if (uploadDiv.childNodes.length > 7) {
+    uploadDiv.removeChild(uploadDiv.childNodes[7])
+  }
+
+  createDiv();
+  addTopText();
+  addImage();
+  addBottomText();
+}

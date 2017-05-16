@@ -5,24 +5,48 @@
   <body>
     <!-- Set up tabs -->
     <div class="tab">
-      <button id = "defaultOpen" class="tablinks" onclick="openTab(event, 'upload')">Upload Image</button>
+      <button id = "defaultOpen" class="tablinks firstTab"  onclick="openTab(event, 'upload')">Upload Image</button>
       <button id="secondTab" class="tablinks" onclick="openTab(event, 'images');">Choose Image</button>
-
     </div>
 
-
-
+    <!--  First Tab-->
     <div id="upload" class="tabcontent">
-      <input class="fileButton" type="file" onchange="previewFile()"><br>
-      <img src="" height="200" alt="">
+      <div></div>
+
+      <div id="inputFile">
+        <p> Upload your image: </p>
+        <input class="fileButton" type="file" onchange="cropImage()"/><br>
+      </div>
+
+      <div id="edit">
+        <div id="imageContainer">
+        </div>
+
+        <div id=chooseText>
+          <p> Top Text: </p>
+          <textarea id="topTextInput" cols="20" rows="2"></textarea>
+          <p> Bottom Text: </p>
+          <textarea id="bottomTextInput" cols="20" rows="2"></textarea>
+          <input id="submitText" type="submit" onclick="showMeme()"/>
+        </div>
+      </div>
+
+      <div id=memeDiv>
+        <img id=croppedImage></img>
+      </div>
+
     </div>
 
+    <!--  Second Tab-->
     <div id="images" class="tabcontent">
       Images will go here
     </div>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.min.js"> </script>
     <script src="app.js"> </script>
+
   </body>
 </html>
