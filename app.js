@@ -51,7 +51,7 @@ function cropImage(){
 
   //create croppie
   basic = $('#imageContainer').croppie({
-    viewport: {width: 300,height: 300},
+    viewport: {width: 200,height: 200},
     showZoomer: false
   });
   //
@@ -76,20 +76,12 @@ function cropImage(){
   }
 
 
-  var memeDiv
-  //Create the image div
-  function createDiv() {
-    memeDiv = document.createElement("div")
-    memeDiv.id = "memeDiv"
-    // memeDiv.className = "meme"
-    uploadDiv.appendChild(memeDiv)
-  }
-  createDiv();
+  var memeDiv = document.getElementById('memeDiv')
 
   function showCroppedImage() {
     basic.croppie('result', {
         type: 'base64',
-        size: 'viewport'
+        size: {width: 400}
     }).then(function(res){
       croppedImage.src = res
     });
@@ -97,6 +89,7 @@ function cropImage(){
 
   showResultButton = document.createElement("button")
   showResultButton.id = "showResultButton"
+  showResultButton.className = "button"
   imageContainer.appendChild(showResultButton)
   showResultButton.innerHTML = "Crop Image"
   showResultButton.onclick = showCroppedImage;
@@ -104,39 +97,24 @@ function cropImage(){
 }
 
 
-
-
-
 function addTopText() {
-  var topText = document.createElement("p")
-  topText.id = "topText"
-  topText.className = "memeText"
+  var topText = document.getElementById("topTextBox")
   topText.innerHTML = document.getElementById("topTextInput").value
-  memeDiv.appendChild(topText)
-}
-
-function addImage() {
-  document.getElementById('memeDiv').appendChild(basic.result)
 }
 
 
 function addBottomText() {
-  var bottomText = document.createElement("p")
-  bottomText.id = "bottomText"
-  bottomText.className = "memeText"
+  var bottomText = document.getElementById("bottomTextBox")
   bottomText.innerHTML = document.getElementById("bottomTextInput").value
-  memeDiv.appendChild(bottomText)
 }
 
 
 function showMeme() {
   //delete old meme
-  if (uploadDiv.childNodes.length > 7) {
-    uploadDiv.removeChild(uploadDiv.childNodes[7])
-  }
+  // if (uploadDiv.childNodes.length > 7) {
+  //   uploadDiv.removeChild(uploadDiv.childNodes[7])
+  // }
 
-  createDiv();
   addTopText();
-  addImage();
   addBottomText();
 }

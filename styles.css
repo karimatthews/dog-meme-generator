@@ -1,31 +1,27 @@
-/* COLOURS
 
-SCREEN    #C5C1C0
-
-STEEL     #0A1612
-
-DENIM     #1A2930
-
-MARIGOLD  #F7CE3E
-
+/*
+Colours:
+#0F1626;  Navy Blue
+#AB987A; Leather
+#FF533D;  Coral
+#F5F5F5;  Eggshell
 */
 
 html {
-  background-color: #C5C1C0;
+  background-color: #0F1626;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 
 body {
-  /*margin-bottom: 0px;*/
-  /*min-height: 100vh;*/
   display: flex;
+  background-color: #0F1626;
   flex-direction: column;
-  font-size: 20px;
-  color: #0A1612;
+  font-size: 16px;
+  color: #F5F5F5;
+  padding: 0;
   margin: 0;
-
 }
 
 div {
@@ -33,19 +29,15 @@ div {
   display: flex;
   /*flex-shrink: 1;*/
   flex-basis: fit-content;
+  /*margin: 10px;*/
 }
 
 
-
-#memeImage {
-  width: 10px;
-  height: 10px
-}
 
   /* Style the tab */
   div.tab {
       overflow: hidden;
-      background-color: #0A1612; /*Charcoal*/
+      background-color: #0F1626; /*Charcoal*/
       width: 100%;
       margin: 0px;
       padding: 0;
@@ -65,113 +57,185 @@ div {
       cursor: pointer;
       padding: 14px 16px;
       transition: 0.3s;
-      color: #C5C1C0;
+      color: #F5F5F5;
       font-size: 14px;
   }
 
   /* Change background color of buttons on hover */
   div.tab button:hover {
-      background-color: #1A2930;
+      background-color: #FF533D;
       color: white;
   }
 
   /* Create an active/current tablink class */
   div.tab button.active {
-      background-color: #F7CE3E;
-      color: black;
+      background-color: #AB987A;
+      color: white;
   }
 
 
   /* Style the tab content */
   .tabcontent {
       display: none;
+      background-color: #F5F5F5;
       padding: 0;
       border: none;
       border-top: none;
-      margin-left: 60px;
+      padding-left: 60px;
+      padding-bottom: 200px;
+      padding-top: 60px;
   }
 
 
 
   #inputFile {
-    background-color: #1A2930;
+    background-color: #0F1626;
     color: white;
-    padding-left: 10px;
-    width: 500px;
-    flex-direction: row;
-    border-radius: 10px;
-    margin:20px;
+    width: 250px;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 0px;
   }
 
   .fileButton {
-    flex-direction: row;
-    padding-left: 20px;
-    align-self: center;
+    /*flex-direction: row;*/
+    /*padding-left: 20px;*/
+    /*align-self: center;*/
   }
 
   #chooseText {
-    background-color: #1A2930;
+    background-color: #0F1626;
+    height: 360px;
     color: white;
-    padding: 20px;
-    width: 300px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 40px;
+    /*width: 300px;*/
     flex-direction: column;
-    border-radius: 10px;
-    margin:20px;
+    flex-basis: fit-content;
+    border-radius: 5px;
+    margin-left: 60px;
   }
 
   .cr-slider {
-    background-color: #C5C1C0;
+    background-color: #F5F5F5;
     /*-webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);*/
   }
 
   textarea {
     padding:5px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 14px;
     max-width: 300px;;
   }
 
   input[type=submit] {
-    width: 100px;
     margin-left: 200px;
   }
 
-  #imageContainer {
-    height:400px;
+  /*.button {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    line-height: : 20px;
+    /*background-color:  #FF533D;*/
+    /*color: white;
+  }*/
+
+  #edit {
+    display: flex;
     flex-direction: column;
-    width: 400px;
+    background-color: #0F1626;
+    border-radius: 5px;
+    height: 400px;
+  }
+
+  #imageContainer {
+    height:300px;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   #memeDiv {
     display: flex;
     flex-direction: column;
-    /*background-color: black;*/
+    background-color: black;
     color: white;
-    /*width: 600px;*/
+    width: 400px;
+    height: 400px;
+    /*padding: 50px;*/
+    position: relative;
+    margin-left: 60px;
   }
 
+#memeGenerator {
+  margin-top: 40px;
+  padding: 0px;
+}
 
+#croppedImage {
+  flex-direction: column;
+  background-color: #AB987A;
+  border: 5px solid black;
+  width: 400px;
+  height: 400px;
+  align-self: center;
+  margin: 0px;
+}
 
 #showResultButton {
+  margin-left: 160px;
   width: 100px;
-  height: 20px;
+  line-height: 16px;
+}
+
+#topTextContainer {
+  display: flex;
+  /*align-self: center;*/
+  position: relative;
+  vertical-align: top;
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+}
+
+/*#topTextBox {
   align-self: center;
+  padding: 10px;
+}*/
+
+#bottomTextContainer {
+  /*margin-top: 450px;*/
+  /*padding-top: 400px;*/
+  vertical-align: bottom;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  margin: 0;
 }
 
 .memeText {
-  padding: 10px;
-  max-width: 600px;
-  margin: 0;
+  padding: 20px;
+  max-width: 500px;
+  /*height: 100px;*/
+  /*padding-left: 20;*/
   font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
-  font-size: 40px;
+  font-size: 30px;
   font-style: normal;
   font-variant: normal;
-  font
   font-weight: 700;
-  line-height: 60px;
-  background-color: black;
+  line-height: 40px;
+  background: none;
   color: white;
+  position: absolute;
+  -webkit-text-fill-color: white;
+ -webkit-text-stroke-color: black;
+ -webkit-text-stroke-width: 2px;
+ /*align-self: center;*/
 }
 
 img {

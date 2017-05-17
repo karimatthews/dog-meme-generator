@@ -11,28 +11,36 @@
 
     <!--  First Tab-->
     <div id="upload" class="tabcontent">
-      <div></div>
+      <div id = "memeGenerator">
+        <div id="edit">
+          <div id="inputFile">
+            <span> Upload your image: </span><br>
+            <input class="fileButton" type="file" onchange="cropImage()"/><br>
+          </div>
 
-      <div id="inputFile">
-        <p> Upload your image: </p>
-        <input class="fileButton" type="file" onchange="cropImage()"/><br>
-      </div>
-
-      <div id="edit">
-        <div id="imageContainer">
+          <div id="imageContainer">
+          </div>
         </div>
 
-        <div id=chooseText>
-          <p> Top Text: </p>
-          <textarea id="topTextInput" cols="20" rows="2"></textarea>
-          <p> Bottom Text: </p>
-          <textarea id="bottomTextInput" cols="20" rows="2"></textarea>
-          <input id="submitText" type="submit" onclick="showMeme()"/>
-        </div>
-      </div>
+          <div id=memeDiv>
+            <div id = "topTextContainer">
+              <span id = topTextBox class = "memeText" > </span>
+            </div>
 
-      <div id=memeDiv>
-        <img id=croppedImage></img>
+            <img id=croppedImage></img>
+
+            <div id = "bottomTextContainer">
+              <span id = bottomTextBox class = "memeText"> </span>
+            </div>
+          </div>
+
+          <div id=chooseText>
+            <span> Top Text: </span>
+            <textarea id="topTextInput" cols="20" rows="4"></textarea><br>
+            <span> Bottom Text: </span>
+            <textarea id="bottomTextInput" cols="20" rows="4"></textarea><br>
+            <input id="submitText" type="submit" class = "button" onclick="showMeme()"/>
+          </div>
       </div>
 
     </div>
